@@ -15,18 +15,19 @@ class LoginDao {
     paramsMap["userName"] = userName;
     paramsMap["password"] = password;
     var uri = Uri.https('api.devio.org', '/uapi/user/login', paramsMap);
-    final response = await http.get(uri, headers: hiHeaders());
+    final response = await http.post(uri, headers: hiHeaders());
     Utf8Decoder utf8decoder = const Utf8Decoder(); // fix 中文乱码
     String bodyString = utf8decoder.convert(response.bodyBytes);
     print(bodyString);
     if (response.statusCode == 200) {
       var result = json.decode(bodyString);
+      print(result);
       if (result['code'] == 0 && result['data']!= null) {
         // 保存登录令牌
         _saveBoardingPass(result['data']);
       } else {
         // 异常处理
-        throw Exception(bodyString);
+        // throw Exception(bodyString);
       }
     } else {
       throw Exception(bodyString);
@@ -39,7 +40,7 @@ class LoginDao {
   }
   // 获取令牌设置为非私有方法 - 其他地方也可调用
   static getBoardingPass() {
-    HiCache.getInstance().get(boardingPass);
+    return HiCache.getInstance().get(boardingPass);
   }
   // 登出
   static void logOut() {

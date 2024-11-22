@@ -28,8 +28,9 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [
+      resizeToAvoidBottomInset: false, // 防止键盘弹起影响布局
+      body: Stack(
+        children: [
         ..._background(),
         _content(),
       ],

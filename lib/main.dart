@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:trip_flutter/navigator/tab_navigator.dart';
+import 'package:trip_flutter/pages/home_page.dart';
+import 'package:trip_flutter/pages/screen_fix_page.dart';
 
 import 'pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
+  // runApp(const ScreenFixPage());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter之旅',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -33,7 +37,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginPage(),
+      home: const TabNavigator(),
+      // home: const LoginPage(),
     );
   }
 }
