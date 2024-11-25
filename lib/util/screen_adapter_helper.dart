@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 // 扩展int以方便使用
@@ -38,4 +37,3 @@ class ScreenHelper {
     return ScreenHelper.ratio * size;
   }
 }
-

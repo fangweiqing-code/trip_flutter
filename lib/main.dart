@@ -1,7 +1,10 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:trip_flutter/navigator/tab_navigator.dart';
 import 'package:trip_flutter/pages/home_page.dart';
 import 'package:trip_flutter/pages/screen_fix_page.dart';
+import 'package:trip_flutter/util/screen_adapter_helper.dart';
 
 import 'pages/login_page.dart';
 
@@ -16,6 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ScreenHelper.init(context); // 初始化屏幕适配工具
     return MaterialApp(
       title: 'Flutter之旅',
       theme: ThemeData(
